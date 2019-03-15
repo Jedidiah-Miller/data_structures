@@ -175,13 +175,10 @@ function sortedIntersect(first, second) {
 
 // mal
 function iterativeReverse(list) {
-  
-  var result = Node
-  while (list) {
-    result = push(result, list.data)
-    list = list.next
-  }
-  list = result
+
+  var [head, node] = [null, list]
+  while(node) [head, node] = [push(head, node.data), node.next]
+  if(list) Object.assign(list, head)
 }
 
 // recursive solution
@@ -197,5 +194,5 @@ function reverse(head, prev = null) {
 
 let node = buildOneTwoThree()
 console.log('node:', node)
-let reversedNode = reverse(node)
+let reversedNode = iterativeReverse(node)
 console.log('node:', reversedNode)
