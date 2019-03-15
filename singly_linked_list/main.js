@@ -173,7 +173,7 @@ function sortedIntersect(first, second) {
   // do things ?
 }
 
-
+// mal
 function iterativeReverse(list) {
   
   var result = Node
