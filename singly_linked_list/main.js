@@ -137,3 +137,65 @@ function moveNode(source, dest) {
 //   return context
 // }
 
+
+function frontBackSplit(source, front, back) {
+  // eat chicken
+}
+
+
+function shuffleMerge(first, second) {
+
+  if (first) first.next = shuffleMerge(second, first.next)
+  return first || second
+}
+
+
+function sortedMerge(first, second) {
+  
+  if(!first || !second) return first || second
+  if (first.data > second.data) [first, second] = [second, first] // honestly why?
+  // first, second = second, first // works in Swift and Python but not here i guess
+  first.next = sortedMerge(first.next, second)
+  return first
+}
+
+// // oh no
+// function mergeSort(list) {
+  
+//   if (!list || !list.next) return list
+//   var a, b = Node
+//   frontBackSplit(list, a, b)
+//   return sortedMerge(mergeSort(a), mergeSort(b))
+// }
+
+
+function sortedIntersect(first, second) {
+  // do things ?
+}
+
+
+function iterativeReverse(list) {
+  
+  var result = Node
+  while (list) {
+    result = push(result, list.data)
+    list = list.next
+  }
+  list = result
+}
+
+// recursive solution
+function reverse(head, prev = null) {
+
+  // safest solution
+  // return head && head.next ? reverse(head.next, push(prev,head.data)) : head ? push(prev, head.data) : null
+  // shortest solution
+  return head ? reverse(head.next, new Node(head.data, prev)) : prev
+}
+
+
+
+let node = buildOneTwoThree()
+console.log('node:', node)
+let reversedNode = reverse(node)
+console.log('node:', reversedNode)
