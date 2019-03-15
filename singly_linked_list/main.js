@@ -17,8 +17,8 @@ function Context(source, dest) {
 
 function display(head) {
 
-  console.log('current data:', head ? head.data : 'END')
-  return display(head.next)
+  console.log(head ? 'current data: ' + head.data : 'END')
+  return head ? display(head.next) : null
 }
 
 
@@ -179,6 +179,7 @@ function iterativeReverse(list) {
   var [head, node] = [null, list]
   while(node) [head, node] = [push(head, node.data), node.next]
   if(list) Object.assign(list, head)
+  return head
 }
 
 // recursive solution
@@ -192,7 +193,12 @@ function reverse(head, prev = null) {
 
 
 
-let node = buildOneTwoThree()
-console.log('node:', node)
-let reversedNode = iterativeReverse(node)
-console.log('node:', reversedNode)
+let node = new Node(0)
+
+for (var i = 1; i < 21; i++) {
+  node = push(node, i)
+}
+
+display(node)
+var rnode = iterativeReverse(node)
+display(rnode)
