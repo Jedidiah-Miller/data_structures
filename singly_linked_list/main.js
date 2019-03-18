@@ -139,7 +139,7 @@ function moveNode(source, dest) {
 
 
 function frontBackSplit(source, front, back) {
-  // eat chicken
+  // things
 }
 
 
@@ -154,7 +154,6 @@ function sortedMerge(first, second) {
   
   if(!first || !second) return first || second
   if (first.data > second.data) [first, second] = [second, first] // honestly why?
-  // first, second = second, first // works in Swift and Python but not here i guess
   first.next = sortedMerge(first.next, second)
   return first
 }
@@ -190,15 +189,3 @@ function reverse(head, prev = null) {
   // shortest solution
   return head ? reverse(head.next, new Node(head.data, prev)) : prev
 }
-
-
-
-let node = new Node(0)
-
-for (var i = 1; i < 21; i++) {
-  node = push(node, i)
-}
-
-display(node)
-var rnode = iterativeReverse(node)
-display(rnode)
