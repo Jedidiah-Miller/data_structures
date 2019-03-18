@@ -248,9 +248,7 @@ class LinkedList {
 
 
     func shuffleMerge(first: Node?, second: Node?) -> Node? {
-
         first?.next = shuffleMerge(first: second, second: first?.next)
-
         // return the second node if first is nil
         // doesn't matter if second is nil if first is nil // this also applies to my original solution
         return first ?? second
@@ -259,17 +257,12 @@ class LinkedList {
 
 
     func sortedMerge(first:Node?, second:Node?) -> Node? {
-
         // I used variables instead of constants because a nand b potentially swap values
         guard var a = first, var b = second else { return first ?? second }
-
         // this lets you swap a and b without creating a new node
         a.data > b.data ? (a, b) = (b, a) : nil
-
         a.next = sortedMerge(first: a.next, second: b)
-
         return a
-
         // this shortens the function by one line but does rely on the push function
         // push is also only one line
     //    guard var a = first, var b = second else { return first ?? second }
@@ -279,14 +272,10 @@ class LinkedList {
 
 
     func mergeSort(_ list:Node?) -> Node? {
-
         // as soon as a nil value is found, return the list, which could be nil
         guard list != nil, list?.next != nil else { return list }
-
         var a :Node?, b: Node?
-
         try? frontBackSplit(source: list, front: &a, back: &b)
-
         return sortedMerge(first: mergeSort(a), second: mergeSort(b))
     }
 
