@@ -3,7 +3,6 @@ import java.io.Console;
 import com.oracle.tools.packager.Log;
 
 // singly linked list
-// all the comment marked 'DO' weren't on codewars
 
 class Node {
 
@@ -27,7 +26,7 @@ class Node {
     Log.i(head ? "current data: " + head.data : "END");
     // recursivly call itself until the head is null
     // pass in the next Node
-    return head ? display(head.next) : null ;
+    return head ? display(head.next) : null;
   }
 
   public static Node push(final Node head, final int data) {
@@ -38,24 +37,24 @@ class Node {
     return push(push(push(null, 3), 2), 1);
   }
 
-  function length(final Node head) {
-    // return 0 if the head is nil
+  public static int length(final Node head) {
+    // return 0 if the head is null
     // return 1 plus the result of the length function given the next node from the head
-    // the result looks somthing like 1 + 1 + 1 + 0 // the last 0 being for a nil head.next
+    // the result looks somthing like 1 + 1 + 1 + 0 // the last 0 being for a null head.next
     return head ? length(head.next) + 1 : 0;
   }
 
   public static int count(final Node head, final int data) {
 
-  // return 0 if the head is nil
+  // return 0 if the head is null
   // return 1 if the node data is equal to the data, plus the result of the count function given the next node -> head.next
-  // the result looks something like 0 + 1 + 1 + 0 + 1 + 0 or whatever // the last zero being for a nil head.next
+  // the result looks something like 0 + 1 + 1 + 0 + 1 + 0 or whatever // the last zero being for a null head.next
   return head ? count(head.next, data) + ( head.data == data ? 1 : 0 ) : 0;
   }
 
 
   public static int getNth(Node n, int index) throws Exception {
-    // if the head is nil then the index is greater than the length of the list
+    // if the head is null then the index is greater than the length of the list
     // return an out of range error
     if (n == null) throw new NullPointerException("index out of range");
     // if the index is 0 then the function has counted down from the original index to 0
@@ -96,9 +95,16 @@ class Node {
     return listA;
   }
 
-  // DO - removeDuplicates
+  public static Node removeDuplicates(Node head) {
 
-  // DO - moveNode
+    // call itself recursively until head is null
+    if (head) head.next = removeDuplicates(head.next);
+    else return head;
+
+    return head.data == head.next.data ? head.next : head;
+  }
+
+  // DO - moveNode // create a Context class
 
   // DO - moveNodeInPlace - currently in beta
 
@@ -114,54 +120,28 @@ class Node {
 
   // DO - sortedIntersect
 
-  // DO - iterativeReverse
+  // DO - iterativeReverse - TEST THIS ! ! ! 
+  public static Node iterativeReverse(Node list) {
 
-  // DO - recursiveReverse
+    Node result;
 
+    while (list) {
+      result = push(result, list.data);
+      list = list.next;
+    }
+
+    return result;
+  }
+
+  // recursive reverse
+  // when first calling this function, prev needs to be null
+  public static Node reverse(Node head, Node prev) {
+
+    return head ? reverse(head.next, new Node(head.data, prev)) : prev;
+  }
 
   public static void temp() {
 
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
-    Log.info("tomato");
     Log.info("tomato");
     Log.info("tomato");
     Log.info("tomato");
