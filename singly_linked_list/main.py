@@ -133,8 +133,7 @@ def shuffle_merge(first, second):
 
 def sorted_merge(first, second):
   if not first or not second: return first or second
-  if first.data > second.data:
-    first, second = second, first
+  if first.data > second.data: first, second = second, first
   first.next = sorted_merge(first.next, second)
   return first
 
