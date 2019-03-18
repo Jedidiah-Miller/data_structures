@@ -153,7 +153,7 @@ function shuffleMerge(first, second) {
 function sortedMerge(first, second) {
   
   if(!first || !second) return first || second
-  if (first.data > second.data) [first, second] = [second, first] // honestly why?
+  if (first.data > second.data) [first, second] = [second, first]
   first.next = sortedMerge(first.next, second)
   return first
 }
