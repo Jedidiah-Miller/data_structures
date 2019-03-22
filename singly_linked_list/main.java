@@ -154,3 +154,37 @@ class Node {
   }
 
 }
+
+
+// special Node
+// this was only for Java on Codewars
+public class Node {
+
+  private String value;
+
+  public Node next;
+
+  public Node(String value) { this.value = value; }
+
+  public String getValue() { return value; }
+
+  public String toString() { return this.value; }
+
+  public String printList() {
+
+    if (this.next == null) return this.toString() + " ->";
+    return this.toString() + " -> " + next.printList();
+  }
+
+
+  // this kata was only in java
+  public static Node swapPairs(Node head) {
+
+    if (head == null || head.next == null) return head;
+    Node next = head.next;
+    head.next = swapPairs(next.next);
+    next.next = head;
+    return next;
+  }
+
+}
