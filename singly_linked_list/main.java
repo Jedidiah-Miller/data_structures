@@ -187,4 +187,13 @@ public class Node {
     return next;
   }
 
+
+  public static void deleteNode(Node node) {
+
+    if (node & node.next) {
+      node.data = node.next.data;
+      node.next = node.next.next;
+    }
+  }
+
 }

@@ -189,3 +189,11 @@ function reverse(head, prev = null) {
   // shortest solution
   return head ? reverse(head.next, new Node(head.data, prev)) : prev
 }
+
+
+function deleteNode(node) {
+
+  if (node && node.next) {
+    [node.data, node.next] = [node.next.data, node.next.next]
+  }
+}

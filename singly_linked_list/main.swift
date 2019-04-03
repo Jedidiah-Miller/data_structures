@@ -376,4 +376,10 @@ class LinkedList {
 
     }
 
+
+    func deleteNode(node: Node) {
+        guard let node = node, node.next != nil else { return }
+        (node.data, node.next) = (node.next.data, node.next.next)
+    }
+
 }

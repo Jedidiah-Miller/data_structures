@@ -160,3 +160,9 @@ def sorted_intersect(f, s):
 # this was a recursive reverse kata and I reached the maximum recursion depth on codewars
 def reverse(head, prev = None):
   return reverse( head, push(prev, head.data)) if head else prev
+
+
+# found on leetcode
+def delete_node(node: Node):
+  if node and node.next:
+    node.data, node.next = node.next.data, node.next.next
